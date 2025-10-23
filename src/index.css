@@ -1,1 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
 @import "tailwindcss";
+
+:root {
+    --c-violet:#6A1B9A;
+    --c-yellow:#fbf6e9;
+    --c-green:#2cb383;
+    --c-green-dark:#239a73;
+
+}
+
+html {
+    overflow-y: scroll;
+}
+
+.font-custom {
+    font-family: "Fredoka", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+.font-custom-t {
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    font-style:italic;
+    font-size: 24px;
+}
+
+
+@layer utilities {
+    .bg-c-yellow{
+        background-color: var(--c-yellow);
+    }
+}

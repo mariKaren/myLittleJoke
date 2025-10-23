@@ -1,28 +1,20 @@
 
 import './App.css'
 import { BrowserRouter as Router, Routes, Route } from "react-router";
-import { Home } from "./pages/Home";
-import { Favorites } from "./pages/Favorites";
-import { BottomNav } from "./components/BottomNav";
+import  Home  from "./pages/Home";
+import Favorites from "./pages/Favorites";
+import Layout from './components/Layout';
 
 export default function App(){
   return (
     <Router>
-      <div className="min-h-screen flex flex-col bg-gray-100">
-        {/* Contenido principal */}
-        <main className="flex-1">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/favorites" element={<Favorites />} />
-          </Routes>
-        </main>
-
-        {/* Footer con navegación fija */}
-        <footer>
-          <BottomNav />
-        </footer>
-        
-      </div>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/favorites" element={<Favorites />} />
+          {/* <Route path="*" element={<NotFound />} />  */}{/* 404 */}
+        </Routes>
+      </Layout>
     </Router>
     //agregar 404
   );

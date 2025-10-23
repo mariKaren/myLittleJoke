@@ -35,7 +35,7 @@ export const FavoritesList: React.FC<Props> = ({ jokes, onUpdate }) => {
   }
 
   return (
-    <div className="grid gap-4 mt-6 max-w-2xl mx-auto mb-[80px]">
+    <div className="grid gap-4 mt-6 max-w-2xl mx-auto mb-[100px]">
       {jokes.map((j) => (
         <div
           key={j.id}

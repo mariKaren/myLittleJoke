@@ -1,7 +1,7 @@
 import { Laugh, Star } from "lucide-react";
 import { NavItem } from "./NavItem";
 
-export const BottomNav = () => {
+const BottomNav = () => {
   return (
     <nav className="fixed bottom-0 left-0 w-full h-20 bg-white/80 backdrop-blur-sm shadow-inner border-t border-gray-200">
       <div className="flex justify-center items-center h-full gap-16">
@@ -11,3 +11,5 @@ export const BottomNav = () => {
     </nav>
   );
 };
+
+export default BottomNav;

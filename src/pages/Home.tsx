@@ -4,7 +4,7 @@ import { FilterBar } from "../components/FilterBar";
 import { JokeCard } from "../components/JokeCard";
 import { getBlocked, addBlocked, getFilter, saveFilter } from "../utils/storage";
 
-export const Home: React.FC = () => {
+const Home: React.FC = () => {
   const [category, setCategory] = useState<string>(() => getFilter());
   const [joke, setJoke] = useState<Joke | null>(null);
   const [error, setError] = useState<string | null>(null);
@@ -56,7 +56,7 @@ export const Home: React.FC = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-6 mb-[80px]">
+    <div className="max-w-xl mx-auto mb-[100px]">
       {/* Selector de categorías */}
       <FilterBar category={category} onChange={setCategory} />
 
@@ -72,3 +72,4 @@ export const Home: React.FC = () => {
   );
 };
  
+export default Home;

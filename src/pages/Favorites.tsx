@@ -3,7 +3,7 @@ import { type Joke } from "../api/jokeApi";
 import { getFavorites } from "../utils/storage";
 import { FavoritesList } from "../components/FavoritesList";
 
-export const Favorites: React.FC = () => {
+const Favorites: React.FC = () => {
   const [jokes, setJokes] = useState<Joke[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
@@ -41,10 +41,10 @@ export const Favorites: React.FC = () => {
   }, [loadFavorites]);
 
   return (
-    <div className="p-6">
-      <h1 className="text-center text-2xl font-semibold text-gray-700">
+    <div className="pt-4">
+      <h2 className="text-center text-xl sm:text-2xl font-semibold text-gray-700">
         Mis Favoritos
-      </h1>
+      </h2>
       {loading ? (
         <p className="text-center text-gray-500 mt-6">Cargando favoritos...</p>
       ) : (
@@ -53,3 +53,5 @@ export const Favorites: React.FC = () => {
     </div>
   );
 };
+
+export default Favorites;
