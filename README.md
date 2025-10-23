@@ -103,13 +103,10 @@ Definida en `:root`:
   --c-yellow: #fbf6e9;
   --c-green: #2cb383;
   --c-green-dark: #239a73;
+  --c-green-tittle:#0d7a56;
 }
 ```
-Aplicada mediante Tailwind:
 
-```tsx
-bg-[var(--c-violet)] text-[var(--c-yellow)] border-[var(--c-green)]
-```
 
 ## Persistencia
 
