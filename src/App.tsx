@@ -1,14 +1,25 @@
 
 import './App.css'
-import { Home } from './pages/Home'
+import { BrowserRouter as Router, Routes, Route } from "react-router";
+import { Home } from "./pages/Home";
+import { Favorites } from "./pages/Favorites";
+import { BottomNav } from "./components/BottomNav";
 
-function App() {
-
+export default function App(){
   return (
-    <>
-    <Home/>
-    </>
-  )
-}
+    <Router>
+      <div className="min-h-screen flex flex-col bg-gray-100">
+        <div className="flex-1">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/favorites" element={<Favorites />} />
+          </Routes>
+        </div>
 
-export default App
+        {/* Nav inferior fijo */}
+        <BottomNav />
+      </div>
+    </Router>
+    //agregar 404
+  );
+};

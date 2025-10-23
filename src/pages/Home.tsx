@@ -24,7 +24,7 @@ export const Home: React.FC = () => {
         // Esperar un poco antes de reintentar para evitar bucles rápidos
         setTimeout(() => loadJoke(), 300);
         return;
-      }
+      } //agregar limite
 
       setJoke(data);
     } catch (err) {
