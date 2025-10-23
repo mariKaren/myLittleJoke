@@ -9,10 +9,11 @@ export const Home: React.FC = () => {
   const [joke, setJoke] = useState<Joke | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const MAX_RETRIES = 5;
 
   // Función para cargar una broma
   //Sin useCallback, loadJoke sería una nueva función diferente en cada render, afectando el useefect de abajo
-  const loadJoke = useCallback(async () => {
+  const loadJoke = useCallback(async (attempts = 0) => {
     try {
       setLoading(true);
       setError(null);
@@ -22,10 +23,16 @@ export const Home: React.FC = () => {
 
       // Evitar bromas bloqueadas
       if (blocked.includes(data.id)) {
-        // Esperar un poco antes de reintentar para evitar bucles rápidos
-        setTimeout(() => loadJoke(), 300);
+        if (attempts >= MAX_RETRIES) {
+          setError("No se pudo obtener una broma válida después de varios intentos.");
+          setJoke(null);
+          setLoading(false);
+          return;
+        }
+
+        setTimeout(() => loadJoke(attempts + 1), 300);
         return;
-      } //agregar limite
+      } //Se agrega un limite de intentos para evitar entrar en un bucle infinito
 
       setJoke(data);
     } catch (err) {
