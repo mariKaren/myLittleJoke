@@ -7,7 +7,7 @@ const categories = ["Any", "Programming", "Misc", "Dark", "Pun", "Spooky", "Chri
 
 export const FilterBar: React.FC<Props> = ({ category, onChange }) => {
     return (
-        <div className="flex justify-center gap-2 p-4">
+        <section className="flex justify-center gap-2 p-4 bg-amber-400">
             <select
                 className="border rounded-lg p-2 text-gray-800"
                 value={category}
@@ -19,6 +19,6 @@ export const FilterBar: React.FC<Props> = ({ category, onChange }) => {
                 </option>
                 ))}
             </select>
-        </div>
+        </section>
     );
 };

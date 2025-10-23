@@ -56,7 +56,7 @@ export const Home: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center bg-gray-100 p-6">
+    <div className="max-w-xl mx-auto items-center p-6">
       {/* Selector de categorías */}
       <FilterBar category={category} onChange={setCategory} />
 

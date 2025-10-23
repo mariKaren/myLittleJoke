@@ -3,8 +3,8 @@ import { Laugh, Star } from "lucide-react";
 
 export const BottomNav = () => {
   return (
-    <nav className="fixed bottom-0 left-0 w-full bg-white shadow-inner py-3">
-      <div className="flex justify-center gap-16">
+    <nav className="fixed bottom-0 left-0 w-full h-18 bg-white shadow-inner py-3">
+      <div className="flex justify-center items-center h-full gap-16">
         <NavLink
           to="/"
           end

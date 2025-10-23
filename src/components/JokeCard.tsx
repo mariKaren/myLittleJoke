@@ -37,7 +37,7 @@ export const JokeCard: React.FC<JokeCardProps> = ({
   };
 
   return (
-    <div className="max-w-xl w-full bg-white rounded-2xl shadow p-6 text-center mt-6 relative">
+    <section className="max-w-xl w-full bg-white rounded-2xl shadow p-6 text-center mt-6 relative">
       {/* Categoría */}
       <h2 className="text-md font-semibold text-gray-600 mb-4">
         {joke?.category || "Categoría"}
@@ -109,6 +109,6 @@ export const JokeCard: React.FC<JokeCardProps> = ({
           Obtener otra broma
         </button>
       </div>
-    </div>
+    </section>
   );
 };

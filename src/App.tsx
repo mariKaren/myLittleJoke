@@ -9,15 +9,19 @@ export default function App(){
   return (
     <Router>
       <div className="min-h-screen flex flex-col bg-gray-100">
-        <div className="flex-1">
+        {/* Contenido principal */}
+        <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/favorites" element={<Favorites />} />
           </Routes>
-        </div>
+        </main>
 
-        {/* Nav inferior fijo */}
-        <BottomNav />
+        {/* Footer con navegación fija */}
+        <footer>
+          <BottomNav />
+        </footer>
+        
       </div>
     </Router>
     //agregar 404
