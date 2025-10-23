@@ -13,13 +13,18 @@ export const FavoritesList: React.FC<Props> = ({ jokes, onUpdate }) => {
   // Función que maneja la eliminación de una broma
   const handleDelete = (id: number) => {
     Swal.fire({
-      title: "¿Qué querés hacer?",
+      title: "¿Qué quieres hacer?",
       text: "Podés borrar solo de favoritos o eliminarla para siempre.",
       icon: "warning",
       showCancelButton: true,
       confirmButtonText: "Solo borrar de favoritos",
       cancelButtonText: "Eliminar y bloquear",
       reverseButtons: true,
+        customClass: {
+          title: "font-custom",
+          htmlContainer: "font-custom",
+          confirmButton: "!bg-[#2cb383]",
+  },
     }).then((result) => {
       if (result.isConfirmed) {
         removeFavorite(id);
