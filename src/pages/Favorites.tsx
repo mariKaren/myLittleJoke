@@ -7,6 +7,7 @@ const Favorites: React.FC = () => {
   const [jokes, setJokes] = useState<Joke[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
+  // Función para cargar favoritos desde la API
   const loadFavorites = useCallback(async () => {
     setLoading(true);
     try {
@@ -17,6 +18,7 @@ const Favorites: React.FC = () => {
         return;
       }
 
+      // Buscar cada chiste por ID desde la API
       const fetched = await Promise.all(
         favIds.map(async (id) => {
           try {
@@ -30,7 +32,7 @@ const Favorites: React.FC = () => {
         })
       );
 
-      setJokes(fetched.filter(Boolean) as Joke[]);
+      setJokes(fetched.filter(Boolean) as Joke[]);// Filtrar chistes válidos
     } finally {
       setLoading(false);
     }

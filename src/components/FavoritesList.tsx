@@ -9,6 +9,8 @@ interface Props {
 }
 
 export const FavoritesList: React.FC<Props> = ({ jokes, onUpdate }) => {
+
+  // Función que maneja la eliminación de una broma
   const handleDelete = (id: number) => {
     Swal.fire({
       title: "¿Qué querés hacer?",
@@ -30,8 +32,9 @@ export const FavoritesList: React.FC<Props> = ({ jokes, onUpdate }) => {
     });
   };
 
+  // Si no hay chistes favoritos, muestra el mensaje
   if (jokes.length === 0) {
-    return <p className="text-center text-gray-500 mt-6">No tienés favoritos aún.</p>;
+    return <p className="text-center text-gray-500 mt-6">No tienes favoritos aún.</p>;
   }
 
   return (

@@ -12,7 +12,7 @@ export const FilterBar: React.FC<Props> = ({ category, onChange }) => {
     return (
         <section className="flex justify-center gap-2 p-4 relative">
             <Listbox value={category} onChange={onChange}>
-                <div className="relative w-64 md:w-80">
+                <div className="relative w-64 md:w-80 ">
                     
                     {/* Botón de control: Estilos del input cerrado */}
                     <ListboxButton 
@@ -27,7 +27,7 @@ export const FilterBar: React.FC<Props> = ({ category, onChange }) => {
                 
                     {/* Lista de opciones */}
                     <ListboxOptions 
-                        className="absolute z-10 mt-1 w-full max-h-85 overflow-auto 
+                        className="absolute z-10 mt-1 w-full max-h-80 overflow-auto 
                         rounded-xl bg-c-yellow shadow-lg focus:outline-none 
                         border border-gray-200"
                     >

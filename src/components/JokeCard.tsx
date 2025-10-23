@@ -21,7 +21,7 @@ export const JokeCard: React.FC<JokeCardProps> = ({
     
   const [isFav, setIsFav] = useState(false);
 
-  // Actualizar el estado local si cambia la broma, actualiza si está en favoritos
+  // Actualiza el estado local si cambia la broma, actualiza si está en favoritos
   useEffect(() => {
     if (joke?.id) {
       setIsFav(isFavorite(joke.id));
@@ -39,6 +39,7 @@ export const JokeCard: React.FC<JokeCardProps> = ({
   return (
     <section className="max-w-xl w-full bg-white rounded-2xl shadow-lg px-3 py-4 md:p-6 text-center mt-6 relative"
     style={{ boxShadow: "0 2px 4px rgba(142, 209, 178,0.5)" }}>
+      
       {/* Categoría */}
       <h2 className="text-md font-semibold text-gray-600 mb-4">
         {joke?.category || "Categoría"}
