@@ -12,14 +12,14 @@ export const fetchJoke = async (category: string): Promise<Joke> => {
     try {
         const res = await fetch(url);
 
-        //Verificar si la respuesta HTTP es OK
+        //Verifica si la respuesta HTTP es OK
         if (!res.ok) {
             throw new Error(`Error en la solicitud HTTP: ${res.status} ${res.statusText}`);
         }
         
         const data = await res.json();
         
-        // Verificar si la API devuelve un error (ej la propiedad 'error' es true)
+        // Verifica si la API devuelve un error (ej la propiedad 'error' es true)
         if (data.error === true) {
             throw new Error(data.message || 'La API devolvió un error inesperado.');
         }

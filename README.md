@@ -1,73 +1,127 @@
-# React + TypeScript + Vite
+# 🃏 MyLittleJoke — App de Bromas con JokeAPI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
 
-Currently, two official plugins are available:
+**MyLittleJoke** es una aplicación web interactiva desarrollada en **React + TypeScript + TailwindCSS**, que muestra bromas dinámicas obtenidas desde la **[JokeAPI](https://v2.jokeapi.dev/)**.  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+El objetivo es ofrecer una experiencia divertida donde los usuarios puedan:
 
-## React Compiler
+- Cargar y leer bromas por categoría.  
+- Guardar sus favoritas.  
+- Bloquear las que no quieren volver a ver.    
+- Mantener toda la información **persistente en el navegador** usando *LocalStorage*.  
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Stack Tecnológico
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| Tecnología | Uso |
+|------------|-----|
+|  **React + TypeScript** | Construcción de la interfaz y manejo de estados tipados. |
+| **TailwindCSS** | Framework CSS para estilos rápidos, responsivos y consistentes. |
+| **JokeAPI** | API utilizada para obtener las bromas dinámicamente. |
+| **LocalStorage API** | Persistencia de favoritos, bloqueados y filtros. |
+| **Vite** | Entorno de desarrollo rápido para proyectos con React. |
+| **React Router DOM** | Navegación entre vistas: Home, Favoritos y 404. |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+---
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## Funcionalidades principales
+
+✅ Obtener bromas aleatorias o filtradas desde **JokeAPI**.  
+✅ Guardar bromas en **favoritos**.  
+✅ **Eliminar o bloquear** bromas (para que no vuelvan a mostrarse).  
+✅ Filtrar bromas por **categoría**.  
+✅ Mantener datos **persistentes** en *LocalStorage*.  
+✅ Página **404 personalizada** con estilo teatral y humorístico.  
+✅ Diseño **responsivo y accesible** con TailwindCSS.  
+
+---
+
+## Estructura del proyecto
+``` 
+src/
+│
+├── api/
+│ └── jokeApi.ts # Tipos y funciones de interacción con JokeAPI
+│
+├── components/
+│ ├── FavoritesList.tsx # Lista de bromas favoritas
+│ ├── JokeCard.tsx # Tarjeta individual de broma
+│ ├── FilterBar.tsx # Barra de filtros por categoría
+│ ├── BottomNav.tsx # Barra de navegación inferior
+│ ├── NavItem.tsx # Componente individual de botón de navegación
+│ └── Layout.tsx # Estructura de página (Header, Footer/BottomNav y Outlet)
+│
+├── pages/
+│ ├── Home.tsx # Página principal con las bromas
+│ ├── Favorites.tsx # Página de favoritos (usa LocalStorage)
+│ └── NotFound.tsx # Página 404 personalizada
+│
+├── utils/
+│ └── storage.ts # Gestión de favoritos, bloqueados y filtros
+│
+├── App.tsx # Definición de rutas
+└── main.tsx # Punto de entrada con ReactDOM
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Rutas principales
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Ruta        | Componente | Descripción                        |
+|------------|------------|-----------------------------------|
+| `/`        | Home       | Página principal con las bromas.  |
+| `/favorites` | Favorites | Lista de bromas favoritas.        |
+| `*`        | NotFound   | Página 404 con estilo teatral.    |
+
+
+## Instalación y ejecución
+
+1. **Clonar el repositorio**
+
+```bash
+git clone 
+cd mylittlejoke
 ```
+2. **Instalar dependencias**
+
+```bash
+npm install
+```
+3. **Ejecutar el proyecto**
+
+```bash
+npm run dev
+```
+## Paleta de colores
+
+Definida en `:root`:
+
+```css
+:root {
+  --c-violet: #6A1B9A;
+  --c-yellow: #fbf6e9;
+  --c-green: #2cb383;
+  --c-green-dark: #239a73;
+}
+```
+Aplicada mediante Tailwind:
+
+```tsx
+bg-[var(--c-violet)] text-[var(--c-yellow)] border-[var(--c-green)]
+```
+
+## Persistencia
+
+Toda la información se guarda en **LocalStorage**:
+
+- Bromas favoritas (`favorites`)  
+- Bromas bloqueadas (`blocked`)  
+- Categoría seleccionada (`selectedCategory`)  
+
+Esto garantiza que los datos se mantengan al recargar o cerrar el navegador.
+
+## Autor
+
+Proyecto desarrollado por Karen Mari.  
+Como práctica de consumo de API, manejo de estado y diseño con **React + TypeScript + TailwindCSS**.  
