@@ -1,12 +1,9 @@
-import {type ReactNode } from "react";
+import { Outlet } from "react-router-dom";
 import { FaTheaterMasks } from "react-icons/fa";
 import BottomNav from "./BottomNav";
 
-interface LayoutProps {
-    children: ReactNode;
-}
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout= () => {
     return (
         <div className="min-h-screen flex flex-col bg-c-yellow font-custom">
         {/* Header */}
@@ -18,7 +15,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </header>
 
             {/* Contenido principal */}
-            <main className="flex-1 px-4">{children}</main>
+            <main className="flex-1 px-4">
+                <Outlet />
+            </main>
 
             {/* Footer */}
             <footer>
