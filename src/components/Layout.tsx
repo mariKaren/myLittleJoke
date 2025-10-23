@@ -10,7 +10,7 @@ const Layout= () => {
         {/* Header */}
             <header className="flex justify-center sm:justify-start items-center gap-2 px-10 py-4 max-w-7xl mx-auto w-full">
                 <FaTheaterMasks size={24} color="#2cb383" />
-                <h1 className="text-green-800 italic font-custom-tittle">
+                <h1 className="fc-green-logo italic font-custom-tittle">
                 MyLittleJoke
                 </h1>
             </header>

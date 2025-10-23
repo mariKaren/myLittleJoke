@@ -17,7 +17,7 @@ export const FilterBar: React.FC<Props> = ({ category, onChange }) => {
                     {/* Botón de control: Estilos del input cerrado */}
                     <ListboxButton 
                         className="w-full border border-gray-300 rounded-xl p-3 text-gray-800 shadow-md
-                        focus:outline-none focus:ring-2 focus:ring-[#47967B] hover:border-[#6A1B9A] transition
+                        focus:outline-none focus:ring-1 focus:ring-[#47967B] hover:border-[#6A1B9A] transition
                         flex justify-between items-center bg-white"
                     >
                         <span>{category}</span>

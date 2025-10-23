@@ -6,7 +6,7 @@
     --c-yellow:#fbf6e9;
     --c-green:#2cb383;
     --c-green-dark:#239a73;
-
+    --c-green-tittle:#0d7a56;
 }
 
 html {
@@ -30,5 +30,32 @@ html {
 @layer utilities {
     .bg-c-yellow{
         background-color: var(--c-yellow);
+    }
+    .bg-c-violet{
+        background-color: var(--c-violet);
+    }
+    .bg-c-green{
+        background-color: var(--c-green);
+    }
+    .bg-c-green-dark{
+        background-color: var(--c-green-dark);
+    }
+    .fc-yellow{
+        color: var(--c-yellow);
+    }
+    .fc-green-logo{
+        color: var(--c-green-tittle);
+    }
+    .hover\:fc-yellow:hover {
+    color: var(--c-yellow);
+    }
+    .hover\:bg-c-green:hover {
+    background-color: var(--c-green);
+    }
+    .hover\:bg-c-green-dark:hover {
+    background-color: var(--c-green-dark);
+    }
+    .border-green{
+        border-color:var(--c-green)
     }
 }

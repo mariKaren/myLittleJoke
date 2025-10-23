@@ -106,7 +106,7 @@ export const JokeCard: React.FC<JokeCardProps> = ({
       <div className="flex justify-center mt-6">
         <button
           onClick={onRefresh}
-          className="bg-[#2cb383] hover:bg-[#239a73] text-white py-2 px-6 rounded-lg transition-colors duration-400"
+          className="bg-c-green hover:bg-c-green-dark text-white py-2 px-6 rounded-lg transition-colors duration-400"
         >
           Obtener otra broma
         </button>
