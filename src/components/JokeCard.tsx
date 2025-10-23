@@ -37,7 +37,8 @@ export const JokeCard: React.FC<JokeCardProps> = ({
   };
 
   return (
-    <section className="max-w-xl w-full bg-white rounded-2xl shadow p-6 text-center mt-6 relative">
+    <section className="max-w-xl w-full bg-white rounded-2xl shadow-lg px-3 py-4 md:p-6 text-center mt-6 relative"
+    style={{ boxShadow: "0 2px 4px rgba(142, 209, 178,0.5)" }}>
       {/* Categoría */}
       <h2 className="text-md font-semibold text-gray-600 mb-4">
         {joke?.category || "Categoría"}
@@ -48,15 +49,15 @@ export const JokeCard: React.FC<JokeCardProps> = ({
         {loading ? (
           <p className="text-gray-500 animate-pulse">Cargando broma...</p>
         ) : error ? (
-          <p className="text-red-500 font-semibold text-lg">{error}</p>
+          <p className="text-red-600 font-semibold text-lg">{error}</p>
         ) : joke ? (
           joke.type === "single" ? (
-            <p className="text-gray-800 text-lg leading-relaxed transition-opacity duration-300">
+            <p className="text-gray-800 text-lg">
               {joke.joke}
             </p>
           ) : (
             <>
-              <p className="text-gray-800 text-lg leading-relaxed transition-opacity duration-300">
+              <p className="text-gray-800 text-lg">
                 {joke.setup}
               </p>
               <p className="text-gray-600 mt-2 italic">{joke.delivery}</p>
@@ -68,7 +69,7 @@ export const JokeCard: React.FC<JokeCardProps> = ({
       </div>
 
       {/* Acciones */}
-      <div className="flex justify-center items-center gap-6 mt-5">
+      <div className="flex justify-center items-center gap-6 mt-4">
         { joke && ( 
         <>
           {/* Favorito */}
@@ -76,14 +77,14 @@ export const JokeCard: React.FC<JokeCardProps> = ({
             onClick={handleFavorite}
             aria-label="Agregar o quitar de favoritos"
             className={`transition-transform hover:scale-110 ${
-              isFav ? "text-yellow-500" : "text-gray-400"
+              isFav ? "text-yellow-500" : "text-gray-400 hover:text-yellow-400 "
             }`}
             title={isFav ? "Quitar de favoritos" : "Agregar a favoritos"}
           >
             <Star
               size={28}
               fill={isFav ? "gold" : "none"}
-              stroke={isFav ? "gold" : "gray"}
+              stroke={isFav ? "gold" : "currentColor"}
               strokeWidth={2}
             />
           </button>
@@ -92,7 +93,7 @@ export const JokeCard: React.FC<JokeCardProps> = ({
           <button
             onClick={() => joke && onBlock(joke.id)}
             aria-label="Bloquear esta broma"
-            className="text-gray-400 hover:text-red-500 transition-transform hover:scale-110"
+            className="text-gray-400 hover:text-red-600 transition-transform hover:scale-110"
             title="Bloquear esta broma"
           >
             <Ban size={26} />
@@ -104,7 +105,7 @@ export const JokeCard: React.FC<JokeCardProps> = ({
       <div className="flex justify-center mt-6">
         <button
           onClick={onRefresh}
-          className="bg-indigo-600 hover:bg-indigo-700 text-white font-semibold py-2 px-6 rounded-lg shadow transition-colors"
+          className="bg-[#2cb383] hover:bg-[#239a73] text-white py-2 px-6 rounded-lg transition-colors duration-400"
         >
           Obtener otra broma
         </button>
