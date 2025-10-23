@@ -1,5 +1,14 @@
 const FAVORITES_KEY = "favorites";
 const BLOCKED_KEY = "blocked";
+const FILTER_KEY = "selectedCategory";
+
+export const saveFilter = (category: string) => {
+    localStorage.setItem(FILTER_KEY, category);
+};
+
+export const getFilter = (): string => {
+    return localStorage.getItem(FILTER_KEY) || "Any";
+};
 
 /**
  * Obtener IDs de bromas favoritas almacenadas en localStorage.

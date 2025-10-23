@@ -1,16 +1,17 @@
-import React, { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { fetchJoke, type Joke } from "../api/jokeApi";
 import { FilterBar } from "../components/FilterBar";
 import { JokeCard } from "../components/JokeCard";
-import { getBlocked, addBlocked } from "../utils/storage";
+import { getBlocked, addBlocked, getFilter, saveFilter } from "../utils/storage";
 
 export const Home: React.FC = () => {
-  const [category, setCategory] = useState("Any");
+  const [category, setCategory] = useState<string>(() => getFilter());
   const [joke, setJoke] = useState<Joke | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
   // Función para cargar una broma
+  //Sin useCallback, loadJoke sería una nueva función diferente en cada render, afectando el useefect de abajo
   const loadJoke = useCallback(async () => {
     try {
       setLoading(true);
@@ -37,8 +38,9 @@ export const Home: React.FC = () => {
   }, [category]);
 
   useEffect(() => {
+    saveFilter(category); 
     loadJoke();
-  }, [category]);
+  }, [category,loadJoke]);
 
   // Función para bloquear una broma
   const handleBlock = (id: number) => {
