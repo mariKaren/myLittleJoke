@@ -49,7 +49,7 @@ export const JokeCard: React.FC<JokeCardProps> = ({
         {loading ? (
           <p className="text-gray-500 animate-pulse">Cargando broma...</p>
         ) : error ? (
-          <p className="text-red-600 font-semibold text-lg">{error}</p>
+          <p className="text-red-700 font-semibold text-lg">{error}</p>
         ) : joke ? (
           joke.type === "single" ? (
             <p className="text-gray-800 text-lg">

@@ -41,7 +41,7 @@ export const Favorites: React.FC = () => {
   }, [loadFavorites]);
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
+    <div className="p-6">
       <h1 className="text-center text-2xl font-semibold text-gray-700">
         Mis Favoritos
       </h1>

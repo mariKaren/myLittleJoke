@@ -1,6 +1,7 @@
 import Swal from "sweetalert2";
 import type { Joke } from "../api/jokeApi";
 import { removeFavorite, addBlocked } from "../utils/storage";
+import { FiTrash2 } from "react-icons/fi"; 
 
 interface Props {
   jokes: Joke[];
@@ -34,11 +35,12 @@ export const FavoritesList: React.FC<Props> = ({ jokes, onUpdate }) => {
   }
 
   return (
-    <div className="grid gap-4 mt-6 max-w-2xl mx-auto mb-[70px]">
+    <div className="grid gap-4 mt-6 max-w-2xl mx-auto mb-[80px]">
       {jokes.map((j) => (
         <div
           key={j.id}
-          className="bg-white p-4 rounded-2xl shadow flex justify-between items-center"
+          className="bg-white p-4 rounded-2xl flex justify-between items-center gap-2"
+          style={{ boxShadow: "0 2px 4px rgba(165, 94, 234,0.3)" }}
         >
           <div>
             {j.type === "single" ? (
@@ -52,9 +54,9 @@ export const FavoritesList: React.FC<Props> = ({ jokes, onUpdate }) => {
           </div>
           <button
             onClick={() => handleDelete(j.id)}
-            className="text-red-500 hover:text-red-700 transition-colors cursor-pointer"
+            className="text-gray-500 hover:text-red-700 transition-colors cursor-pointer"
           >
-            🗑️
+            <FiTrash2 size={20} />
           </button>
         </div>
       ))}
