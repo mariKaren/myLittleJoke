@@ -5,10 +5,10 @@ import { FiTrash2 } from "react-icons/fi";
 
 interface Props {
   jokes: Joke[];
-  onUpdate: () => void;
+  onRemove: (id: number) => void;
 }
 
-export const FavoritesList: React.FC<Props> = ({ jokes, onUpdate }) => {
+export const FavoritesList: React.FC<Props> = ({ jokes,onRemove }) => {
 
   // Función que maneja la eliminación de una broma
   const handleDelete = (id: number) => {
@@ -28,11 +28,11 @@ export const FavoritesList: React.FC<Props> = ({ jokes, onUpdate }) => {
     }).then((result) => {
       if (result.isConfirmed) {
         removeFavorite(id);
-        onUpdate();
+        onRemove(id);
       } else if (result.dismiss === Swal.DismissReason.cancel) {
         removeFavorite(id);
         addBlocked(id);
-        onUpdate();
+        onRemove(id);
       }
     });
   };
@@ -43,7 +43,7 @@ export const FavoritesList: React.FC<Props> = ({ jokes, onUpdate }) => {
   }
 
   return (
-    <div className="grid gap-4 mt-6 max-w-2xl mx-auto mb-[100px]">
+    <div className="grid gap-4 mt-6 max-w-2xl mx-auto">
       {jokes.map((j) => (
         <div
           key={j.id}
