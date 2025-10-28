@@ -18,7 +18,6 @@ const Favorites: React.FC = () => {
   useEffect(() => {
     const ids = getFavorites();
     setFavIds(ids);
-    setHasMore(ids.length > 0);
     loadFirstPage(ids);
   }, []);
 
@@ -42,6 +41,15 @@ const Favorites: React.FC = () => {
   // Cargar la primera página
   const loadFirstPage = async (ids: number[]) => {
     setLoading(true);
+    
+    if (ids.length === 0) {
+      setJokes([]);
+      setHasMore(false);
+      setLoading(false);
+      setPage(0);
+      return;
+    }
+
     const firstBatch = ids.slice(0, CHUNK_SIZE);
     const data = await fetchJokesBatch(firstBatch);
     setJokes(data);
